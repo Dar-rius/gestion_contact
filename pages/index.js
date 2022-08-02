@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Accueil from '../components/accueuil/accueil'
+//import Accueil from '../components/accueuil/accueil'
 
 export default function Home() {
   return (
@@ -13,7 +13,6 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Accueil/>
       </main>
 
       <footer className={styles.footer}>
