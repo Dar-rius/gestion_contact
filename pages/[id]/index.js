@@ -66,6 +66,10 @@ const DeleteContact = ({ contact }) => {
                     </>
                 }
                 <Confirm
+                    style={{color:"black", fontSize:"18px"}}
+                    content='Voulez vous vraiment supprimer ce contact ?'
+                    cancelButton='Non'
+                    confirmButton="Oui"
                     open={confirm}
                     onCancel={close}
                     onConfirm={handleDelete}
