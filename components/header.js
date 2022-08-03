@@ -1,13 +1,14 @@
 import Image from "next/image"
 import Logo from "../assets/logo.png"
 import Link from "next/link"
+import styles from "../styles/header.module.css"
 
 export default function Header(){
     return <>
-        <header>
+        <header className={styles.header}>
             <Link href="/">
                 <a>
-                    <Image src={Logo}/>
+                    Accueil
                 </a>
             </Link>
 
