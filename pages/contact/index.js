@@ -10,24 +10,7 @@ export default function Contact(){
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errors, setErrors] = useState({});
     const router = useRouter();
-    
 
-    const createContact = async () => {
-        try {
-            const res = await fetch('http://localhost:3000/api/contacts', {
-                method: 'POST',
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(form)
-            })
-            router.push("http://localhost:3000/accueil");
-        } catch (error) {
-            console.log(error);
-        }
-    }
-      
     useEffect(() => {
         if (isSubmitting) {
             if (Object.keys(errors).length === 0) {
@@ -39,6 +22,21 @@ export default function Contact(){
         }
     }, [errors])
 
+    const createContact = async () => {
+        try {
+            const res = await fetch('http://localhost:3000/api/contacts', {
+                method: 'POST',
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(form)
+            })
+            router.push("http://localhost:3000/");
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -61,7 +59,7 @@ export default function Contact(){
             err.nom = 'Votre nom est requis';
         }
         if (!form.prenom) {
-            err.prenom = 'votre prenom est requis est requis';
+            err.prenom = 'Votre prenom est requis est requis';
         }
         if (!form.phone) {
             err.phone = 'Votre numero de telephone est requis';
@@ -73,8 +71,8 @@ export default function Contact(){
         return err;
     }
     return (
-        <div className="form-container">
-            <h1>Creer un projet</h1>
+            <div className="form-container">
+            <h1>Ajoter des un contact</h1>
             <div>
                 {
                     isSubmitting
@@ -82,35 +80,36 @@ export default function Contact(){
                         : <Form onSubmit={handleSubmit}>
                             <Form.Input
                                 fluid
-                                error={errors.nom}
-                                label='Le nom'
+                                error={errors.nom ? { content: 'Votre nom est requis', pointing: 'below' } : null}
+                                label='Nom'
                                 placeholder='Entrez votre nom'
                                 name='nom'
                                 onChange={handleChange}
                             />
                             <Form.Input
                                 fluid
-                                error={errors.prenom}
-                                label='Le prenom'
+                                error={errors.prenom ? { content: 'Votre prenom est requis est requis', pointing: 'below' } : null}
+                                label='Prenom'
                                 placeholder='Entrez votre prenom'
                                 name='prenom'
                                 onChange={handleChange}
                             />
+                           
                             <Form.Input
                                 fluid
-                                label='numero de telephone'
-                                placeholder='Entrez votre numero'
+                                error={errors.phone ? { content: 'Votre numero de telephone est requis', pointing: 'below' } : null}
+                                label="Numero de telephone"
+                                placeholder='Entrez votre numero de telephone '
                                 name='phone'
-                                error={errors.phone}
                                 onChange={handleChange}
                             />
                             <Form.Input
                                 fluid
-                                label='Adresse mail'
+                                error={errors.email ? { content: 'Votre adresse mail est requis', pointing: 'below' } : null}
+                                label="Adresse mail"
+                                type="email"
                                 placeholder='Entrez votre adresse mail'
-                                name='emalil'
-                                type='email'
-                                error={errors.resume }
+                                name='email'
                                 onChange={handleChange}
                             />
 

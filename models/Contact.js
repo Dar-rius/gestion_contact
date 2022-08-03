@@ -11,6 +11,6 @@ const ContactSchema = new mongoose.Schema({
   },
 });
 
-const Contact = mongoose.models.Contact || mongoose.model("contact", ContactSchema);
+const Contact = mongoose.models.Contact || mongoose.model("Contact", ContactSchema);
 
 export default Contact;
