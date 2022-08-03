@@ -2,6 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Confirm, Button, Loader } from 'semantic-ui-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../../components/header';
 import styles from '../../styles/contactid.module.css'
@@ -54,12 +55,14 @@ const DeleteContact = ({ contact }) => {
                     ? <Loader active />
                     :
                     <>
-                        <p style={{fontSize:"18px"}}> <strong>Nom:</strong> {contact.nom}</p>
-                        <p style={{fontSize:"18px"}}> <strong>Prenom:</strong> {contact.prenom}</p>
-                        <p style={{fontSize:"18px"}}><strong>Telephone:</strong> {contact.phone}</p>
-                        <p style={{fontSize:"18px"}}> <strong>adresse mail:</strong> {contact.email}</p>
+                    <section className={styles.sec}>
+                        <Image src={Person} width="110%" height="110%"/>
+                        <p style={{fontSize:"18px"}}> <strong>{contact.nom} {contact.prenom}</strong></p>
+                        <p style={{fontSize:"18px"}}><strong>Mobile:</strong> {contact.phone}</p>
+                        <p style={{fontSize:"18px"}}> <strong>Adresse mail:</strong> {contact.email}</p>
                         <Button color='red' onClick={open}>Supprimer</Button>
                         <Button color='blue' onClick={goEdit}>Modifier</Button>
+                    </section>
                     </>
                 }
                 <Confirm

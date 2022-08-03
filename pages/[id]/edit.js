@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
+import styles from "../../styles/add.module.css"
+import Header from '../../components/header';
 
-const EditContact = ({ formulaire }) => {
-    const [form, setForm] = useState({ nom: formulaire.nom, prenom: formulaire.prenom, email: formulaire.email});
+const EditContact = ({ contact }) => {
+    const [form, setForm] = useState({ nom: contact.nom, prenom: contact.prenom, phone: contact.phone, email: contact.email});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errors, setErrors] = useState({});
     const router = useRouter();
@@ -70,43 +72,47 @@ const EditContact = ({ formulaire }) => {
     }
 
     return (
-        <div className="form-container">
-            <h1>Update projets</h1>
+        <div >
+            <Header/>
+            
             <div>
+            <h1 className={styles.container}>Update projets</h1>
                 {
                     isSubmitting
                         ? <Loader active inline='centered' />
-                        : <Form onSubmit={handleSubmit}>
+                        : <Form onSubmit={handleSubmit} className={styles.group_forms}>
                             <Form.Input
-                                fluid
                                 error={errors.nom ? { content: 'Votre nom est requis', pointing: 'below' } : null}
                                 label='Nom'
                                 placeholder='Entrez votre nom'
                                 name='nom'
                                 value = {form.nom}
                                 onChange={handleChange}
+                                width= "10"
+
                             />
                             <Form.Input
-                                fluid
                                 error={errors.prenom ? { content: 'Votre prenom est requis est requis', pointing: 'below' } : null}
                                 label='Prenom'
                                 placeholder='Entrez votre prenom'
                                 name='prenom'
                                 value = {form.prenom}
                                 onChange={handleChange}
+                                width= "10"
+
                             />
                            
                             <Form.Input
-                                fluid
                                 error={errors.phone ? { content: 'Votre numero de telephone est requis', pointing: 'below' } : null}
                                 label="Numero de telephone"
                                 placeholder='Entrez votre numero de telephone '
                                 name='phone'
                                 value = {form.phone}
                                 onChange={handleChange}
+                                width= "10"
+
                             />
                             <Form.Input
-                                fluid
                                 error={errors.email ? { content: 'Votre adresse mail est requis', pointing: 'below' } : null}
                                 label="Adresse mail"
                                 type="email"
@@ -114,8 +120,14 @@ const EditContact = ({ formulaire }) => {
                                 name='email'
                                 value = {form.email}
                                 onChange={handleChange}
+                                width= "10"
+
                             />
-                            <Button type='submit'>Update</Button>
+                            <Button 
+                            color="blue"
+                            size="large"
+                            type='submit'
+                            >Update</Button>
                         </Form>
                 }
             </div>
@@ -127,7 +139,7 @@ EditContact.getInitialProps = async ({ query: { id } }) => {
     const res = await fetch(`http://localhost:3000/api/contacts/${id}`);
     const { data } = await res.json();
 
-    return { formulaire: data }
+    return { contact: data }
 }
 
 export default EditContact;
