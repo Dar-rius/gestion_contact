@@ -1,0 +1,21 @@
+.container{
+    text-align: center;
+}
+
+.group_forms {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 2%;
+    border-radius:2% ;
+}
+
+.bouton{
+    background-color: #5DADE2;
+}
+

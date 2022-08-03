@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
+import styles from "../../styles/add.module.css"
+import Header from '../../components/header';
+
 
 //formualire
 export default function Contact(){
@@ -71,53 +74,65 @@ export default function Contact(){
         return err;
     }
     return (
-            <div className="form-container">
-            <h1>Ajoter des un contact</h1>
+        <section>
+            <Header/>
+            <div >
+                <p className={styles.container}>Ajouter un conatact</p>
             <div>
                 {
                     isSubmitting
                         ? <Loader active inline='centered' />
-                        : <Form onSubmit={handleSubmit}>
+                        : <Form onSubmit={handleSubmit} className={styles.group_forms} >
                             <Form.Input
-                                fluid
                                 error={errors.nom ? { content: 'Votre nom est requis', pointing: 'below' } : null}
                                 label='Nom'
                                 placeholder='Entrez votre nom'
                                 name='nom'
                                 onChange={handleChange}
+                                size="large"
+                                width= "10"
                             />
                             <Form.Input
-                                fluid
                                 error={errors.prenom ? { content: 'Votre prenom est requis est requis', pointing: 'below' } : null}
                                 label='Prenom'
                                 placeholder='Entrez votre prenom'
                                 name='prenom'
                                 onChange={handleChange}
+                                size="large"
+                                width="10"
                             />
                            
                             <Form.Input
-                                fluid
                                 error={errors.phone ? { content: 'Votre numero de telephone est requis', pointing: 'below' } : null}
                                 label="Numero de telephone"
                                 placeholder='Entrez votre numero de telephone '
                                 name='phone'
                                 onChange={handleChange}
+                                size="large"
+                                width="10"
                             />
                             <Form.Input
-                                fluid
                                 error={errors.email ? { content: 'Votre adresse mail est requis', pointing: 'below' } : null}
                                 label="Adresse mail"
                                 type="email"
                                 placeholder='Entrez votre adresse mail'
                                 name='email'
                                 onChange={handleChange}
+                                size="large"
+                                width="10"
                             />
 
-                            <Button type='submit'>Creer</Button>
+                            <Button 
+                                color="blue"
+                                size="large"
+                                type='submit' >
+                                Ajouter
+                            </Button>
                         </Form>
                 }
             </div>
         </div>
+        </section>
     )
 }
 
