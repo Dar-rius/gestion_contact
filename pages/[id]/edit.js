@@ -124,7 +124,7 @@ const EditContact = ({ formulaire }) => {
 }
 
 EditContact.getInitialProps = async ({ query: { id } }) => {
-    const res = await fetch(`http://localhost:3000/api/formulaire/${id}`);
+    const res = await fetch(`http://localhost:3000/api/contacts/${id}`);
     const { data } = await res.json();
 
     return { formulaire: data }

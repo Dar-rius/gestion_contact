@@ -45,7 +45,7 @@ const DeleteContact = ({ contact }) => {
                     <p style={{fontSize:"18px"}}> <strong>Nom:</strong> {contact.nom}</p>
                     <p style={{fontSize:"18px"}}> <strong>Prenom:</strong> {contact.prenom}</p>
                     <p style={{fontSize:"18px"}}><strong>Telephone:</strong> {contact.phone}</p>
-                    <p style={{fontSize:"18px"}}> <strong>adresse mail:</strong> {contact.emil}</p>
+                    <p style={{fontSize:"18px"}}> <strong>adresse mail:</strong> {contact.email}</p>
                     <Button color='red' onClick={open}>Supprimer</Button>
                 </>
             }
