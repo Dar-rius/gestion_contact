@@ -16,60 +16,62 @@ export default function Home({contacts}) {
 
 
       <Header/>
-      <h1 style={{fontWeight:"700", marginLeft:"20%"}}>Contacts</h1>
+      <h1 className={styles.title}>Contacts</h1>
       
       <main className={styles.container}>
-        <table>
+        <div className={styles.tables}>
+          <table className={styles.table}>
 
-          <thead className={styles.table_row_head}>
-            <tr>
-                    <th className={styles.table_dh}>Nom</th>
-                    <th className={styles.table_dh}>Prenom</th>
-                    <th className={styles.table_dh}>Numero</th>
-                    <th className={styles.table_dh}>Adresse mail</th>
-            </tr>
-          </thead>
+            <thead className={styles.table_row_head}>
+              <tr>
+                      <th className={styles.table_dh}>Nom</th>
+                      <th className={styles.table_dh}>Prenom</th>
+                      <th className={styles.table_dh}>Numero</th>
+                      <th className={styles.table_dh}>Adresse mail</th>
+              </tr>
+            </thead>
 
-          <tbody className={styles.table_row_body}>
-            {contacts.map(contact =>{
-                return(
-                  <tr >
-                      <td className={styles.table_dh}>
-                        <Link href={`/${contact._id}`}>
-                          <a>
-                            {contact.nom}
-                          </a>
-                        </Link>
-                      </td>
-
-                      <td className={styles.table_dh}>
-                        <Link href={`/${contact._id}`}>
-                            <a>
-                              {contact.prenom}
-                            </a>
-                        </Link>
-                      </td>
-
-                      <td className={styles.table_dh}>
+            <tbody className={styles.table_row_body}>
+              {contacts.map(contact =>{
+                  return(
+                    <tr >
+                        <td className={styles.table_dh}>
                           <Link href={`/${contact._id}`}>
                             <a>
-                              {contact.phone}
+                              {contact.nom}
                             </a>
                           </Link>
                         </td>
 
-                      <td className={styles.table_dh}>
-                        <Link href={`/${contact._id}`}>
-                          <a>
-                            {contact.email}
-                          </a>
-                        </Link>
-                      </td>
-                  </tr>
-                )
-              })}
-          </tbody>
-        </table>
+                        <td className={styles.table_dh}>
+                          <Link href={`/${contact._id}`}>
+                              <a>
+                                {contact.prenom}
+                              </a>
+                          </Link>
+                        </td>
+
+                        <td className={styles.table_dh}>
+                            <Link href={`/${contact._id}`}>
+                              <a>
+                                {contact.phone}
+                              </a>
+                            </Link>
+                          </td>
+
+                        <td className={styles.table_dh}>
+                          <Link href={`/${contact._id}`}>
+                            <a>
+                              {contact.email}
+                            </a>
+                          </Link>
+                        </td>
+                    </tr>
+                  )
+                })}
+            </tbody>
+          </table>
+        </div>
       </main>
       <Footer/>
     </>

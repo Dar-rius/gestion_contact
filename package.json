@@ -14,6 +14,7 @@
     "@emotion/styled": "^11",
     "antd": "^4.22.3",
     "axios": "^0.24.0",
+    "bootstrap": "^5.2.0",
     "eslint-plugin-react-hooks": "^4.7.0-next-9fcaf88d5-20220801",
     "framer-motion": "^5",
     "isomorphic-unfetch": "^3.1.0",
