@@ -10,6 +10,7 @@ export default async (req, res) => {
     } = req;
 
     switch (method) {
+        //Afficher les donnees du contact
         case 'GET':
             try {
                 const contact = await Contact.findById(id);
@@ -23,6 +24,8 @@ export default async (req, res) => {
                 res.status(400).json({ success: false });
             }
             break;
+
+        //Mettre a jour les donnees du contact
         case 'PUT':
             try {
                 const contact = await Contact.findByIdAndUpdate(id, req.body, {
@@ -39,6 +42,8 @@ export default async (req, res) => {
                 res.status(400).json({ success: false });
             }
             break;
+
+        //Supprimer le contact
         case 'DELETE':
             try {
                 const deletedcontact = await Contact.deleteOne({ _id: id });

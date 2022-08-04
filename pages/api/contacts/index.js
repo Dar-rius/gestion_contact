@@ -7,6 +7,7 @@ export default async (req, res) => {
     const { method } = req;
 
     switch (method) {
+        //Afficher les contacts 
         case 'GET':
             try {
                 const contacts = await Contact.find({});
@@ -16,6 +17,8 @@ export default async (req, res) => {
                 res.status(400).json({ success: false });
             }
         break;
+
+        // Creer un contact lorsqu'une methode post passe
         case 'POST':
             try {
                 const contacts = await Contact.create(req.body);

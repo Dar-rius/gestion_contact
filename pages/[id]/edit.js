@@ -7,10 +7,17 @@ import styles from "../../styles/add.module.css"
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
+//page permettant de modifier les donnees d'un contact
 const EditContact = ({ contact }) => {
+    //les variables contenant les donnees des differents champs
     const [form, setForm] = useState({ nom: contact.nom, prenom: contact.prenom, phone: contact.phone, email: contact.email});
+    
+    //variable pour valider le formulaire
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    //les variables pour pour les erreurs
     const [errors, setErrors] = useState({});
+
     const router = useRouter();
 
     useEffect(() => {
@@ -24,6 +31,7 @@ const EditContact = ({ contact }) => {
         }
     }, [errors])
 
+    //Fonction permettant passer la methode pour mettre a jour les donnees
     const updateForm = async () => {
         try {
             const res = await fetch(`http://localhost:3000/api/contacts/${router.query.id}`, {
@@ -40,6 +48,7 @@ const EditContact = ({ contact }) => {
         }
     }
 
+    //Focntion pour valider le formulaire et qui verifie s'il y a une erreur dans le formulaire
     const handleSubmit = (e) => {
         e.preventDefault();
         let errs = validate();
@@ -54,6 +63,7 @@ const EditContact = ({ contact }) => {
         })
     }
 
+    //Fonction qui verifie si les champs sont vides
     const validate = () => {
         let err = {};
 
@@ -73,64 +83,64 @@ const EditContact = ({ contact }) => {
     }
 
     return (
-        <div >
+        <div>
             <Header/>
             
             <div >
                 {
-                    isSubmitting
-                        ? <Loader active inline='centered' />
-                        : <Form onSubmit={handleSubmit} style={{marginBottom:"6.3%"}} className={styles.group_forms}>
-                            <Form.Input
-                                error={errors.nom ? { content: 'Votre nom est requis', pointing: 'below' } : null}
-                                label='Nom'
-                                placeholder='Entrez votre nom'
-                                name='nom'
-                                value = {form.nom}
-                                onChange={handleChange}
-                                width= "10"
+                isSubmitting
+                    ? <Loader active inline='centered' />
+                    : <Form onSubmit={handleSubmit} style={{marginBottom:"6.3%"}} className={styles.group_forms}>
+                        <Form.Input
+                            error={errors.nom ? { content: 'Votre nom est requis', pointing: 'below' } : null}
+                            label='Nom'
+                            placeholder='Entrez votre nom'
+                            name='nom'
+                            value = {form.nom}
+                            onChange={handleChange}
+                            width= "10"
 
-                            />
-                            <Form.Input
-                                error={errors.prenom ? { content: 'Votre prenom est requis est requis', pointing: 'below' } : null}
-                                label='Prenom'
-                                placeholder='Entrez votre prenom'
-                                name='prenom'
-                                value = {form.prenom}
-                                onChange={handleChange}
-                                width= "10"
+                        />
+                        <Form.Input
+                            error={errors.prenom ? { content: 'Votre prenom est requis est requis', pointing: 'below' } : null}
+                            label='Prenom'
+                            placeholder='Entrez votre prenom'
+                            name='prenom'
+                            value = {form.prenom}
+                            onChange={handleChange}
+                            width= "10"
 
-                            />
-                           
-                            <Form.Input
-                                error={errors.phone ? { content: 'Votre numero de telephone est requis', pointing: 'below' } : null}
-                                label="Numero de telephone"
-                                placeholder='Entrez votre numero de telephone '
-                                name='phone'
-                                value = {form.phone}
-                                onChange={handleChange}
-                                width= "10"
+                        />
+                        
+                        <Form.Input
+                            error={errors.phone ? { content: 'Votre numero de telephone est requis', pointing: 'below' } : null}
+                            label="Numero de telephone"
+                            placeholder='Entrez votre numero de telephone '
+                            name='phone'
+                            value = {form.phone}
+                            onChange={handleChange}
+                            width= "10"
 
-                            />
-                            <Form.Input
-                                error={errors.email ? { content: 'Votre adresse mail est requis', pointing: 'below' } : null}
-                                label="Adresse mail"
-                                type="email"
-                                placeholder='Entrez votre adresse mail'
-                                name='email'
-                                value = {form.email}
-                                onChange={handleChange}
-                                width= "10"
+                        />
+                        <Form.Input
+                            error={errors.email ? { content: 'Votre adresse mail est requis', pointing: 'below' } : null}
+                            label="Adresse mail"
+                            type="email"
+                            placeholder='Entrez votre adresse mail'
+                            name='email'
+                            value = {form.email}
+                            onChange={handleChange}
+                            width= "10"
 
-                            />
-                            <Button 
-                            color="blue"
-                            size="large"
-                            type='submit'
-                            >
-                                Modifier
-                            </Button>
-                        </Form>
+                        />
+                        <Button 
+                        color="blue"
+                        size="large"
+                        type='submit'
+                        >
+                            Modifier
+                        </Button>
+                    </Form>
                 }
             </div>
             <Footer/>

@@ -10,8 +10,10 @@ import Person from "../../assets/personne.png"
 import Footer from '../../components/footer';
 
 const DeleteContact = ({ contact }) => {
+    //variables pour confirmer et verifier la suppression du contact
     const [confirm, setConfirm] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
+
     const router = useRouter();
 
     useEffect(() => {
@@ -20,11 +22,12 @@ const DeleteContact = ({ contact }) => {
         }
     }, [isDeleting])
     
-
+    //Une fonction pour ouvrir le pup demandant la confirmation avant de supprimer
     const open = () => setConfirm(true);
-
+    //Une fontion pour fermer le pup
     const close = () => setConfirm(false);
 
+    //Une fonction qui va passer une methode pour suppimer le contact
     const deleteContact = async () => {
         const contactID = router.query.id;
         try {
@@ -38,6 +41,7 @@ const DeleteContact = ({ contact }) => {
         }
     }
 
+    // Une fonction qui va rediriger le visiteur de la plateforme vers la page d'edition du contact
     const goEdit = () =>{
         const contactID = router.query.id;
         router.push(`/${contactID}/edit`)

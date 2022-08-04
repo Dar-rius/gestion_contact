@@ -10,9 +10,15 @@ import Footer from '../../components/footer';
 
 //formualire
 export default function Contact(){
+    //Les variables contenant les donnees des differents champs
     const [form, setForm] = useState({nom:'', prenom:'', phone:'', email:''});
+
+    //variable pour valider le formulaire
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    //les variables pour pour les erreurs
     const [errors, setErrors] = useState({});
+    
     const router = useRouter();
 
     useEffect(() => {
@@ -26,6 +32,7 @@ export default function Contact(){
         }
     }, [errors])
 
+    //Fonction permettant passer la methode pour creer un contact 
     const createContact = async () => {
         try {
             const res = await fetch('http://localhost:3000/api/contacts', {
@@ -42,6 +49,7 @@ export default function Contact(){
         }
     }
 
+    //Focntion pour valider le formulaire et qui verifie s'il y a une erreur dans le formulaire
     const handleSubmit = (e) => {
         e.preventDefault();
         let errs = validate();
@@ -56,6 +64,7 @@ export default function Contact(){
         })
     }
 
+    //Fonction qui verifie si les champs sont vides
     const validate = () => {
         let err = {};
 
@@ -77,10 +86,10 @@ export default function Contact(){
     return (
         <section>
             <Header/>
-            <div >
-            <div>
-                {
-                    isSubmitting
+                <div >
+                    <div>
+                    {
+                        isSubmitting
                         ? <Loader active inline='centered' />
                         : <Form onSubmit={handleSubmit} className={styles.group_forms} >
                             <Form.Input
@@ -101,7 +110,7 @@ export default function Contact(){
                                 size="large"
                                 width="10"
                             />
-                           
+                        
                             <Form.Input
                                 error={errors.phone ? { content: 'Votre numero de telephone est requis', pointing: 'below' } : null}
                                 label="Numero de telephone"
@@ -129,9 +138,9 @@ export default function Contact(){
                                 Ajouter
                             </Button>
                         </Form>
-                }
+                    }
+                </div>
             </div>
-        </div>
         <Footer/>
 
         </section>
