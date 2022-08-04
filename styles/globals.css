@@ -6,7 +6,6 @@ body {
   margin: 0;
     font-family: 'Exo 2';
 
-
 }
 
 a {
@@ -22,8 +21,7 @@ a {
   html {
   }
   body {
-    color: white;
-    background-color: #0D044B;
+    color: #5DADE2;
     font-size: large;
   }
 }

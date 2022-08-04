@@ -8,12 +8,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: white;
+    background-color: #85C1E9;
     margin-left: 35%;
     margin-right: 35%;
     padding: 2%;
     border-radius:2% ;
-
+    margin-bottom: 8.3%;
 }
 
 .bouton{

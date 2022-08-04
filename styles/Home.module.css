@@ -1,17 +1,21 @@
 .container{
-  margin-top: 5%;
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-bottom: 20%;
 }
 
 .table_row_head{
   background-color: #2E86C1;
   color: white;
+  border: 1px solid #2E86C1;
+
 }
 
 .table_row_body{
   background-color: #34495E;
+  border: 1px solid #2E86C1;
+  color: white;
 }
 
 .table_dh{

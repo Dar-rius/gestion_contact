@@ -5,6 +5,7 @@ import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
 import styles from "../../styles/add.module.css"
 import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 
 //formualire
@@ -77,7 +78,6 @@ export default function Contact(){
         <section>
             <Header/>
             <div >
-                <p className={styles.container}>Ajouter un conatact</p>
             <div>
                 {
                     isSubmitting
@@ -132,6 +132,8 @@ export default function Contact(){
                 }
             </div>
         </div>
+        <Footer/>
+
         </section>
     )
 }

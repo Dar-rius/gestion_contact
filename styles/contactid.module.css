@@ -3,13 +3,22 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    color: black;
+    color: white;
+    margin-top: 5%;
+    margin-bottom: 8.6%;
 }
 
 .sec{
-    background-color: white;
+    background-color: #5DADE2;
     margin-left: 20%;
     margin-right: 20%;
     padding: 3%;
+    border-radius: 2%;
+}
+
+.bouton{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 

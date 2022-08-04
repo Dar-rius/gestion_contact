@@ -5,6 +5,7 @@ import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
 import styles from "../../styles/add.module.css"
 import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 const EditContact = ({ contact }) => {
     const [form, setForm] = useState({ nom: contact.nom, prenom: contact.prenom, phone: contact.phone, email: contact.email});
@@ -75,12 +76,11 @@ const EditContact = ({ contact }) => {
         <div >
             <Header/>
             
-            <div>
-            <h1 className={styles.container}>Update projets</h1>
+            <div >
                 {
                     isSubmitting
                         ? <Loader active inline='centered' />
-                        : <Form onSubmit={handleSubmit} className={styles.group_forms}>
+                        : <Form onSubmit={handleSubmit} style={{marginBottom:"6.3%"}} className={styles.group_forms}>
                             <Form.Input
                                 error={errors.nom ? { content: 'Votre nom est requis', pointing: 'below' } : null}
                                 label='Nom'
@@ -127,10 +127,13 @@ const EditContact = ({ contact }) => {
                             color="blue"
                             size="large"
                             type='submit'
-                            >Update</Button>
+                            >
+                                Modifier
+                            </Button>
                         </Form>
                 }
             </div>
+            <Footer/>
         </div>
     )
 }

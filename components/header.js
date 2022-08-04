@@ -2,6 +2,7 @@ import Image from "next/image"
 import Logo from "../assets/logo.png"
 import Link from "next/link"
 import styles from "../styles/header.module.css"
+import { Button } from "antd"
 
 export default function Header(){
     return <>
@@ -14,7 +15,11 @@ export default function Header(){
 
             <div>
                 <Link href="/ajoutcontact">
-                    <a>Ajouter un contact</a>
+                    <a>
+                    <Button type="primary" shape="round" size="large">
+                        Ajouter un contact
+                    </Button>
+                    </a>
                 </Link>
             </div>
         </header>

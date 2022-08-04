@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Header from '../../components/header';
 import styles from '../../styles/contactid.module.css'
 import Person from "../../assets/personne.png"
+import Footer from '../../components/footer';
 
 const DeleteContact = ({ contact }) => {
     const [confirm, setConfirm] = useState(false);
@@ -60,9 +61,12 @@ const DeleteContact = ({ contact }) => {
                         <p style={{fontSize:"18px"}}> <strong>{contact.nom} {contact.prenom}</strong></p>
                         <p style={{fontSize:"18px"}}><strong>Mobile:</strong> {contact.phone}</p>
                         <p style={{fontSize:"18px"}}> <strong>Adresse mail:</strong> {contact.email}</p>
-                        <Button color='red' onClick={open}>Supprimer</Button>
-                        <Button color='blue' onClick={goEdit}>Modifier</Button>
+                        <diV className={styles.bouton}>
+                            <Button color='red' onClick={open}>Supprimer</Button>
+                            <Button color='blue' onClick={goEdit}>Modifier</Button>
+                        </diV>
                     </section>
+                    
                     </>
                 }
                 <Confirm
@@ -75,6 +79,7 @@ const DeleteContact = ({ contact }) => {
                     onConfirm={handleDelete}
                 />
         </div>
+        <Footer/>
         </>
     )
 }
