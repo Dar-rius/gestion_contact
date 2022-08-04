@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/home.module.css'
 import fetch from 'isomorphic-unfetch';
 import Header from '../components/header'
 import Link from 'next/link';

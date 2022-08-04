@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
-import styles from "../../styles/add.module.css"
+import styles from "../../styles/ajout.module.css"
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
