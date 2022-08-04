@@ -1,5 +1,4 @@
 .container{
-  margin-bottom: 20%;
   text-align: center;
 }
 
@@ -24,7 +23,8 @@
 
 .tables{
   display: flex;
-  overflow-x:auto;
+  height: 29em;
+  overflow:auto;
 
 }
 
@@ -50,8 +50,4 @@
   .title{
     margin-left: 10%;
   }
-}
-
-@media only screen and (max-width: 630px){
-
 }

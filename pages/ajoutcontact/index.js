@@ -99,7 +99,7 @@ export default function Contact(){
                                 name='nom'
                                 onChange={handleChange}
                                 size="large"
-                                width= "10"
+                                width= "13"
                             />
                             <Form.Input
                                 error={errors.prenom ? { content: 'Votre prenom est requis est requis', pointing: 'below' } : null}
@@ -108,17 +108,17 @@ export default function Contact(){
                                 name='prenom'
                                 onChange={handleChange}
                                 size="large"
-                                width="10"
+                                width="13"
                             />
                         
                             <Form.Input
                                 error={errors.phone ? { content: 'Votre numero de telephone est requis', pointing: 'below' } : null}
                                 label="Numero de telephone"
-                                placeholder='Entrez votre numero de telephone '
+                                placeholder='Entrez votre numero'
                                 name='phone'
                                 onChange={handleChange}
                                 size="large"
-                                width="10"
+                                width="13"
                             />
                             <Form.Input
                                 error={errors.email ? { content: 'Votre adresse mail est requis', pointing: 'below' } : null}
@@ -128,7 +128,7 @@ export default function Contact(){
                                 name='email'
                                 onChange={handleChange}
                                 size="large"
-                                width="10"
+                                width="13"
                             />
 
                             <Button 

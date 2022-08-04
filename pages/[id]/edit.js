@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
-import styles from "../../styles/add.module.css"
+import styles from "../../styles/ajout.module.css"
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
@@ -98,7 +98,7 @@ const EditContact = ({ contact }) => {
                             name='nom'
                             value = {form.nom}
                             onChange={handleChange}
-                            width= "10"
+                            width= "13"
 
                         />
                         <Form.Input
@@ -108,7 +108,7 @@ const EditContact = ({ contact }) => {
                             name='prenom'
                             value = {form.prenom}
                             onChange={handleChange}
-                            width= "10"
+                            width= "13"
 
                         />
                         
@@ -119,7 +119,7 @@ const EditContact = ({ contact }) => {
                             name='phone'
                             value = {form.phone}
                             onChange={handleChange}
-                            width= "10"
+                            width= "13"
 
                         />
                         <Form.Input
@@ -130,7 +130,7 @@ const EditContact = ({ contact }) => {
                             name='email'
                             value = {form.email}
                             onChange={handleChange}
-                            width= "10"
+                            width= "13"
 
                         />
                         <Button 

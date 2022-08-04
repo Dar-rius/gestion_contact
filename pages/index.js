@@ -20,8 +20,7 @@ export default function Home({contacts}) {
       
       <main className={styles.container}>
         <div className={styles.tables}>
-          <table className={styles.table}>
-
+          <table className={styles.table} >
             <thead className={styles.table_row_head}>
               <tr>
                       <th className={styles.table_dh}>Nom</th>

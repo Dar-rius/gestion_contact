@@ -62,7 +62,7 @@ const DeleteContact = ({ contact }) => {
                     <>
                     <section className={styles.sec}>
                         <Image src={Person} width="110%" height="110%"/>
-                        <p style={{fontSize:"18px"}}> <strong>{contact.nom} {contact.prenom}</strong></p>
+                        <p style={{fontSize:"18px"}}> <strong>{contact.prenom} {contact.nom}</strong></p>
                         <p style={{fontSize:"18px"}}><strong>Mobile:</strong> {contact.phone}</p>
                         <p style={{fontSize:"18px"}}> <strong>Adresse mail:</strong> {contact.email}</p>
                         <diV className={styles.bouton}>

@@ -9,14 +9,32 @@
     justify-content: center;
     flex-direction: column;
     background-color: #85C1E9;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 32%;
+    margin-right: 32%;
     padding: 2%;
     border-radius:2% ;
     margin-bottom: 8.3%;
+    margin-top: 6%;
 }
 
 .bouton{
     background-color: #5DADE2;
 }
 
+@media only screen and (max-width: 1000px){
+    .group_forms{
+        padding: auto;
+        margin-left: 25%;
+        margin-right: 25%;
+        padding: 4%;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .group_forms{
+        margin-top: 20%;
+        padding: auto;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+}
